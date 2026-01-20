@@ -25,8 +25,8 @@ const Gallery: React.FC = () => {
   return (
     <div className="pt-32 min-h-screen bg-savannah-dark text-vellum px-6 lg:px-24 pb-32">
        <div className="mb-20">
-          <h1 className="text-5xl lg:text-7xl font-serif font-bold mb-6">Through The Lens</h1>
-          <p className="text-gray-400 text-xl max-w-2xl font-sans">Moments captured by our guests and guides in the field. The raw beauty of Kenya, frozen in time.</p>
+          <h1 className="text-4xl lg:text-7xl font-serif font-bold mb-6">Through The Lens</h1>
+          <p className="text-gray-400 text-lg lg:text-xl max-w-2xl font-sans">Moments captured by our guests and guides in the field. The raw beauty of Kenya, frozen in time.</p>
        </div>
        
        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">

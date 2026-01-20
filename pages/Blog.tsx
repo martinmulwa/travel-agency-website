@@ -12,8 +12,8 @@ const Blog: React.FC = () => {
   return (
     <div className="pt-32 min-h-screen bg-vellum px-6 lg:px-24 pb-32">
       <div className="text-center max-w-3xl mx-auto mb-20">
-         <h1 className="text-5xl lg:text-7xl font-serif font-bold mb-6 text-savannah-dark">Safari Journal</h1>
-         <p className="text-gray-600 font-sans text-xl leading-relaxed">
+         <h1 className="text-4xl lg:text-7xl font-serif font-bold mb-6 text-savannah-dark">Safari Journal</h1>
+         <p className="text-gray-600 font-sans text-lg lg:text-xl leading-relaxed">
            Stories from the bush, photography tips, and updates on conservation efforts across East Africa.
          </p>
       </div>

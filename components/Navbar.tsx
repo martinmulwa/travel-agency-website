@@ -19,16 +19,24 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     setIsOpen(false);
+    document.body.style.overflow = 'unset';
   }, [location]);
 
+  const toggleMenu = () => {
+      const newState = !isOpen;
+      setIsOpen(newState);
+      document.body.style.overflow = newState ? 'hidden' : 'unset';
+  };
+
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-3' : 'bg-transparent py-6'}`}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
+    <>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'glass-nav py-3' : 'bg-transparent py-6'}`}>
+      <div className="container mx-auto px-6 flex justify-between items-center relative z-50">
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 bg-savannah-dark rounded-full flex items-center justify-center group-hover:bg-ochre transition-colors">
             <span className="text-vellum font-bold text-sm tracking-tighter">SH</span>
           </div>
-          <div className="hidden sm:block">
+          <div className="block">
              <span className="uppercase tracking-[0.2em] font-extrabold text-sm block leading-none">Safari Horizons</span>
              <span className="text-[9px] uppercase tracking-widest text-ochre font-mono">Kenya</span>
           </div>
@@ -50,27 +58,30 @@ const Navbar: React.FC = () => {
           <Link to="/contact" className="hidden sm:block bg-savannah-dark text-vellum hover:bg-moss text-[10px] py-3 px-6 tracking-widest font-bold uppercase transition-all transform hover:-translate-y-0.5">
             Plan Your Safari
           </Link>
-          <button className="lg:hidden text-savannah-dark" onClick={() => setIsOpen(!isOpen)}>
+          <button className="lg:hidden text-savannah-dark hover:text-ochre transition-colors focus:outline-none" onClick={toggleMenu}>
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-vellum border-b border-clay shadow-xl animate-fade-in-down">
-          <div className="flex flex-col p-6 space-y-4 font-serif text-lg">
-            <Link to="/" className="border-b border-clay pb-2">Home</Link>
-            <Link to="/safaris" className="border-b border-clay pb-2">Safaris & Tours</Link>
-            <Link to="/about" className="border-b border-clay pb-2">Our Story</Link>
-            <Link to="/conservation" className="border-b border-clay pb-2">Conservation</Link>
-            <Link to="/blog" className="border-b border-clay pb-2">Journal</Link>
-            <Link to="/contact" className="text-ochre font-bold">Contact Us</Link>
-            <Link to="/admin" className="text-xs text-gray-400 font-mono mt-4">Staff Login</Link>
-          </div>
-        </div>
-      )}
     </nav>
+
+    {/* Mobile Menu Overlay */}
+    <div className={`fixed inset-0 bg-vellum/95 backdrop-blur-md z-40 lg:hidden transition-transform duration-500 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex flex-col items-center justify-center h-full space-y-8 p-6">
+            <Link to="/" className="text-3xl font-serif font-bold text-savannah-dark hover:text-ochre transition-colors">Home</Link>
+            <Link to="/safaris" className="text-3xl font-serif font-bold text-savannah-dark hover:text-ochre transition-colors">Safaris & Tours</Link>
+            <Link to="/about" className="text-3xl font-serif font-bold text-savannah-dark hover:text-ochre transition-colors">Our Story</Link>
+            <Link to="/conservation" className="text-3xl font-serif font-bold text-savannah-dark hover:text-ochre transition-colors">Conservation</Link>
+            <Link to="/blog" className="text-3xl font-serif font-bold text-savannah-dark hover:text-ochre transition-colors">Journal</Link>
+            <Link to="/gallery" className="text-3xl font-serif font-bold text-savannah-dark hover:text-ochre transition-colors">Gallery</Link>
+            <Link to="/contact" className="text-3xl font-serif font-bold text-ochre hover:text-savannah-dark transition-colors">Contact Us</Link>
+            
+            <div className="mt-12 pt-12 border-t border-clay w-full max-w-xs text-center">
+                 <Link to="/admin" className="text-xs text-gray-400 font-mono uppercase tracking-widest hover:text-savannah-dark">Staff Login</Link>
+            </div>
+        </div>
+    </div>
+    </>
   );
 };
 

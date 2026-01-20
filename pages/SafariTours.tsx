@@ -15,8 +15,8 @@ const SafariTours: React.FC = () => {
   return (
     <div className="pt-32 px-6 lg:px-24 pb-32 min-h-screen bg-vellum">
       <div className="mb-20 pt-8">
-        <h1 className="text-5xl lg:text-7xl font-serif font-extrabold mb-8 text-savannah-dark">Our Collections</h1>
-        <p className="text-gray-600 max-w-2xl text-xl font-sans leading-relaxed">
+        <h1 className="text-4xl lg:text-7xl font-serif font-extrabold mb-8 text-savannah-dark">Our Collections</h1>
+        <p className="text-gray-600 max-w-2xl text-lg lg:text-xl font-sans leading-relaxed">
           From the dusty plains of the Mara to the turquoise waters of Diani, choose an itinerary that speaks to your spirit of adventure.
         </p>
       </div>
