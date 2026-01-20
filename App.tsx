@@ -3,7 +3,7 @@
  * Project: Safari Horizons Kenya
  */
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { SiteProvider, useSite } from './context/SiteContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -43,7 +43,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 const App: React.FC = () => {
   return (
     <SiteProvider>
-      <BrowserRouter>
+      <HashRouter>
         <ScrollToTop />
         <Routes>
           {/* Public Routes */}
@@ -66,7 +66,7 @@ const App: React.FC = () => {
           
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </SiteProvider>
   );
 };
